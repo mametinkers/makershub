@@ -24,7 +24,7 @@
 
 const SITE = {
   // Paste your Google Form link here (see README.md, step 5)
-  suggestFormUrl: "https://forms.gle/REPLACE-WITH-YOUR-FORM",
+  suggestFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeIhnqXfcTx2LbCse9M5woouUa19Pme0x5DrmDCAZ20jq7F9g/viewform",
   contactEmail: "",            // e.g. "tinkers.mame@gmail.com" — leave "" to hide
   lastUpdated: "September 2026",
 };
@@ -195,6 +195,24 @@ const RESOURCES = [
     tags: ["laser cutter", "wood", "model making", "casting", "acrylic", "MDF"],
   },
   {
+    name: "Mechanical Engineering Design Studio",
+    type: "CAD & computing",
+    access: "Department / program only",
+    campus: "Downtown",
+    building: "Macdonald Engineering Building",
+    room: "MD 50",
+    summary:
+      "Computer lab for CAD and design work, with 24/7 card access for Mechanical Engineering students.",
+    equipment: ["49 Dell Precision workstations (Windows 11)", "Engineering software"],
+    whoCanUse: "Mechanical Engineering students only.",
+    cost: "Free.",
+    howToAccess: "24-hour access with your McGill ID card.",
+    hours: "24/7 (card access).",
+    contact: "Engineering Microcomputing Facilities",
+    website: "https://www.mcgill.ca/emf/labs/departmental-labs/design",
+    tags: ["CAD", "SolidWorks", "computers", "24/7"],
+  },
+  {
     name: "Chemistry Electronics Shop & Shop Technician",
     type: "Electronics",
     access: "Department / program only",
@@ -272,7 +290,7 @@ const RESOURCES = [
     access: "Department / program only",
     campus: "Downtown",
     building: "Macdonald Engineering Building",
-    room: "MD 50",
+    room: "MD 051",
     summary:
       "Student makerspace for engineering students with hand and power tools, run by The Tinkers (MAME Manufacturing Committee). Also hosts workshops open to all engineering students.",
     equipment: ["Hand tools", "Power tools", "Workshops for engineering students"],
