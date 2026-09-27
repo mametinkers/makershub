@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After publishing, replace YOUR-USERNAME below with your GitHub username
+Sitemap: https://YOUR-USERNAME.github.io/makershub/sitemap.xml

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makershub — McGill makerspaces, machine shops &amp; 3D printing directory</title>
+<meta name="description" content="Find every makerspace, machine shop, 3D printer, laser cutter and fabrication service at McGill University — who can use it, where it is, what it costs and how to get access.">
+<meta name="keywords" content="McGill makerspace, McGill 3D printing, McGill machine shop, McGill laser cutter, McGill workshop, McGill engineering manufacturing, Montreal makerspace">
+<meta property="og:title" content="Makershub — McGill makerspace directory">
+<meta property="og:description" content="Every place to make things at McGill: makerspaces, machine shops, 3D printing and fabrication services.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#c8102e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c8102e'/%3E%3Cpath d='M8 23V9l8 8 8-8v14' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Makershub",
+  "description": "Student-made directory of makerspaces, machine shops, 3D printing and fabrication resources at McGill University.",
+  "inLanguage": "en"
+}
+</script>
+<style>
+  :root{
+    --bg:#faf8f5; --surface:#ffffff; --surface-2:#f2eee8; --ink:#1c1a17; --ink-2:#5b554d; --ink-3:#8a8379;
+    --line:#e4ded5; --accent:#c8102e; --accent-ink:#ffffff; --accent-soft:#fbe7ea;
+    --ok:#1f7a4d; --ok-soft:#e3f3ea; --warn:#8a5a00; --warn-soft:#fbf0d9; --info:#2a5db0; --info-soft:#e6eefb;
+    --shadow:0 1px 2px rgba(28,26,23,.06),0 4px 16px rgba(28,26,23,.06);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141311; --surface:#1d1b19; --surface-2:#26231f; --ink:#f2eee8; --ink-2:#bdb5aa; --ink-3:#8a8379;
+      --line:#34302b; --accent:#ff4d5e; --accent-ink:#1a0a0c; --accent-soft:#3a1c20;
+      --ok:#6fd39f; --ok-soft:#18301f; --warn:#f0c068; --warn-soft:#33280f; --info:#8fb4ff; --info-soft:#1a2540;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141311; --surface:#1d1b19; --surface-2:#26231f; --ink:#f2eee8; --ink-2:#bdb5aa; --ink-3:#8a8379;
+    --line:#34302b; --accent:#ff4d5e; --accent-ink:#1a0a0c; --accent-soft:#3a1c20;
+    --ok:#6fd39f; --ok-soft:#18301f; --warn:#f0c068; --warn-soft:#33280f; --info:#8fb4ff; --info-soft:#1a2540;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;line-height:1.15;margin:0;letter-spacing:-.01em}
+  a{color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* header */
+  header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:"Space Grotesk";font-weight:700;font-size:20px}
+  .brand svg{flex:none}
+  nav.links{display:flex;gap:4px;margin-left:auto}
+  nav.links a{color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:500;font-size:15px}
+  nav.links a:hover{background:var(--surface-2);color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:10px 16px;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+  .icon-btn{background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px;display:grid;place-items:center;color:var(--ink-2)}
+  @media (max-width:760px){ nav.links{display:none} .top .suggest-txt{display:none} .top .wrap{gap:10px} .top .btn{margin-left:auto} }
+
+  /* hero */
+  .hero{padding:64px 0 28px}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .hero h1{font-size:clamp(34px,6vw,58px);max-width:15ch}
+  .hero p.lede{font-size:clamp(17px,2vw,19px);color:var(--ink-2);max-width:60ch;margin:16px 0 28px}
+  .search{position:relative;max-width:680px}
+  .search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--ink-3)}
+  .search input{width:100%;font:inherit;font-size:17px;padding:17px 18px 17px 52px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;font-size:14px;color:var(--ink-3);align-items:center}
+  .quick button{background:none;border:1px dashed var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);font-size:14px}
+  .quick button:hover{border-color:var(--accent);color:var(--accent)}
+  .stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px;color:var(--ink-2);font-size:14px}
+  .stats b{display:block;font-family:"Space Grotesk";font-size:28px;color:var(--ink)}
+
+  /* filters */
+  .filters{position:sticky;top:64px;z-index:10;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line);margin-top:8px}
+  .filters .wrap{display:flex;gap:10px;align-items:center}
+  .filters select{flex:none;width:auto;max-width:48%}
+  .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0;padding:2px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+  .chip:hover{color:var(--ink);border-color:var(--ink-3)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  select{font:inherit;font-size:14px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+  .count{font-size:14px;color:var(--ink-3);margin:22px 0 12px}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;padding-bottom:40px}
+  @media (max-width:420px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px;text-align:left;color:inherit;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+  .card:hover{transform:translateY(-2px);border-color:var(--ink-3)}
+  .card h3{font-size:19px}
+  .meta{display:flex;align-items:flex-start;gap:6px;color:var(--ink-3);font-size:14px}
+  .meta svg{flex:none;margin-top:3px}
+  .card p{margin:0;color:var(--ink-2);font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .row{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:12.5px;background:var(--surface-2);color:var(--ink-2);border-radius:6px;padding:3px 8px}
+  .pill{font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;letter-spacing:.01em}
+  .pill.type{background:var(--accent-soft);color:var(--accent)}
+  .a-open{background:var(--ok-soft);color:var(--ok)}
+  .a-dept{background:var(--warn-soft);color:var(--warn)}
+  .a-service{background:var(--info-soft);color:var(--info)}
+  .a-public{background:var(--surface-2);color:var(--ink-2)}
+  .card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;font-weight:600;color:var(--accent)}
+  .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-2);border:1px dashed var(--line);border-radius:var(--radius)}
+
+  /* dialog */
+  dialog{border:0;border-radius:18px;padding:0;max-width:680px;width:calc(100% - 32px);max-height:88vh;background:var(--surface);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog::backdrop{background:rgba(20,18,16,.55);backdrop-filter:blur(2px)}
+  .dlg-head{padding:24px 24px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface)}
+  .dlg-head h2{font-size:26px;margin:10px 40px 6px 0}
+  .dlg-close{position:absolute;top:18px;right:18px}
+  .dlg-body{padding:8px 24px 24px}
+  dl{margin:0}
+  dl div{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  dl div:last-child{border:0}
+  dt{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding-top:2px}
+  dd{margin:0;overflow-wrap:anywhere}
+  dd ul{margin:0;padding-left:18px}
+  .unk{color:var(--ink-3);font-style:italic}
+  @media (max-width:560px){ dl div{grid-template-columns:1fr;gap:2px} }
+  .dlg-actions{display:flex;gap:10px;flex-wrap:wrap;padding:16px 24px 24px}
+
+  /* sections */
+  section.band{padding:72px 0;border-top:1px solid var(--line)}
+  section.band h2{font-size:clamp(28px,4vw,38px);margin-bottom:10px}
+  section.band .sub{color:var(--ink-2);max-width:62ch;margin:0 0 32px}
+  .paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .path{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .path .num{font-family:"Space Grotesk";font-weight:700;color:var(--accent);font-size:14px}
+  .path h3{font-size:19px;margin:6px 0 8px}
+  .path p{margin:0 0 12px;color:var(--ink-2);font-size:15px}
+  .path button{background:none;border:0;padding:0;color:var(--accent);font-weight:600;font-size:15px}
+  .gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 32px;margin-top:40px}
+  .gloss div{padding:14px 0;border-top:1px solid var(--line)}
+  .gloss b{font-family:"Space Grotesk"}
+  .gloss p{margin:4px 0 0;color:var(--ink-2);font-size:15px}
+  .cta{background:var(--ink);color:var(--bg);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .cta h2{font-size:28px;margin-bottom:6px}
+  .cta p{margin:0;opacity:.75;max-width:52ch}
+  footer{padding:40px 0 56px;color:var(--ink-3);font-size:14px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Makershub home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M8 23V9l8 8 8-8v14" stroke="var(--accent-ink)" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Makershub
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#directory">Directory</a>
+      <a href="#start">New to making?</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-primary suggest-link" href="#" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      <span class="suggest-txt">Suggest a space</span>
+    </a>
+    <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">McGill manufacturing resources</span>
+      <h1>Every place to make things at McGill.</h1>
+      <p class="lede">Makerspaces, machine shops, 3D printers, laser cutters and fabrication services — who can use them, where they are, and how to get in. All in one place.</p>
+      <div class="search" role="search">
+        <label for="q" class="sr">Search resources</label>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Try “laser cutter”, “lathe”, “Wong”, “3D print”…" autocomplete="off">
+      </div>
+      <div class="quick" aria-label="Popular searches">
+        Popular:
+        <button data-q="3D print">3D printing</button>
+        <button data-q="laser">Laser cutter</button>
+        <button data-q="lathe">Lathe / mill</button>
+        <button data-q="welding">Welding</button>
+        <button data-q="soldering">Electronics</button>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
+
+  <div class="filters" id="directory">
+    <div class="wrap">
+      <div class="chips" id="typeChips" role="group" aria-label="Filter by type"></div>
+      <label class="sr" for="access">Who can use it</label>
+      <select id="access">
+        <option value="">All access types</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <section class="band" id="start">
+    <div class="wrap">
+      <h2>New to making? Start here.</h2>
+      <p class="sub">Not sure where to go? Pick what you're trying to do.</p>
+      <div class="paths">
+        <div class="path">
+          <div class="num">01</div>
+          <h3>I need a quick 3D print</h3>
+          <p>Any McGill student can send a model to the library printers, and engineering students get 200 g free at the Fishbowl. Export your part as an .stl file and submit it.</p>
+          <button data-q="3D print">See 3D printing options →</button>
+        </div>
+        <div class="path">
+          <div class="num">02</div>
+          <h3>I want to machine parts myself</h3>
+          <p>Take the Faculty of Engineering training modules (hand tools → lathe → mill). Design team members get priority.</p>
+          <button data-q="training">See machine shop training →</button>
+        </div>
+        <div class="path">
+          <div class="num">03</div>
+          <h3>I want someone to make it for me</h3>
+          <p>Faculty Workshop Services' technicians can machine, weld, waterjet or laser-cut your part from a drawing and a work order.</p>
+          <button data-type="Fabrication service">See fabrication services →</button>
+        </div>
+        <div class="path">
+          <div class="num">04</div>
+          <h3>I'm building electronics</h3>
+          <p>ECSE students can join The Factory for free — benches, components and workshops.</p>
+          <button data-type="Electronics">See electronics labs →</button>
+        </div>
+      </div>
+
+      <div class="gloss">
+        <div><b>FOAPAL</b><p>McGill's account number for a fund (a lab, design team or course). Shops charge work and training to it — ask your supervisor or team captain.</p></div>
+        <div><b>Work order</b><p>The form you submit to have technicians fabricate a part. It needs drawings and a fund controller's signature.</p></div>
+        <div><b>.stl file</b><p>The standard 3D-print file. In SolidWorks or Fusion: File → Save As / Export → STL.</p></div>
+        <div><b>TM #1 / #2 / #3</b><p>Engineering's machine-shop training modules: basics &amp; hand tools, then lathe, then milling.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>Know a space we're missing?</h2>
+          <p>Makershub is built by students, for students. If you run or use a makerspace, shop or tool that isn't listed — or something here is out of date — tell us.</p>
+        </div>
+        <a class="btn btn-primary suggest-link" href="#" target="_blank" rel="noopener">Suggest a space or correction</a>
+      </div>
+      <p class="sub" style="margin-top:32px">
+        Makershub is maintained by <b>The Tinkers</b>, the MAME Manufacturing Committee. It is a student project and not an official McGill University website.
+        Information is compiled from each space's public pages and may change — always confirm access, hours and costs with the space before you go.
+        <span id="contactLine"></span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Makershub · The Tinkers (MAME)</span>
+    <span id="updated"></span>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="dlg-head">
+    <div class="row" id="dlgPills"></div>
+    <h2 id="dlgTitle"></h2>
+    <div class="meta" id="dlgMeta"></div>
+    <button class="icon-btn dlg-close" id="dlgClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="dlg-body"><dl id="dlgList"></dl></div>
+  <div class="dlg-actions" id="dlgActions"></div>
+</dialog>
+
+<script src="resources.js"></script>
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  const pin = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+  const accessClass = a => ({"Open to all":"a-open","Department / program only":"a-dept","Service (they make it for you)":"a-service"}[a] || "a-public");
+
+  const data = RESOURCES.map(r => ({...r, id: slug(r.name),
+    hay: [r.name,r.type,r.access,r.building,r.room,r.summary,(r.equipment||[]).join(" "),(r.tags||[]).join(" "),r.whoCanUse,r.howToAccess].join(" ").toLowerCase()}));
+  data.sort((a,b) => a.name.localeCompare(b.name));
+
+  // site config
+  const formUrl = SITE.suggestFormUrl;
+  document.querySelectorAll(".suggest-link").forEach(a => a.href = formUrl);
+  $("#yr").textContent = new Date().getFullYear();
+  $("#updated").textContent = SITE.lastUpdated ? "Last updated " + SITE.lastUpdated : "";
+  if (SITE.contactEmail) $("#contactLine").innerHTML = 'Contact: <a href="mailto:'+esc(SITE.contactEmail)+'">'+esc(SITE.contactEmail)+'</a>';
+
+  // stats
+  const openCount = data.filter(r => r.access === "Open to all").length;
+  const buildings = new Set(data.filter(r=>r.campus!=="Off-campus" && r.building).map(r=>r.building.split("(")[0].trim()));
+  $("#stats").innerHTML = `<div><b>${data.length}</b>resources listed</div><div><b>${openCount}</b>open to all</div><div><b>${buildings.size}</b>buildings</div>`;
+
+  // filters
+  const state = { q:"", type:"", access:"" };
+  const types = [...new Set(data.map(r=>r.type))].sort();
+  $("#typeChips").innerHTML = ['<button class="chip" data-type="" aria-pressed="true">All</button>']
+    .concat(types.map(t => `<button class="chip" data-type="${esc(t)}" aria-pressed="false">${esc(t)}</button>`)).join("");
+  const accesses = [...new Set(data.map(r=>r.access))];
+  $("#access").insertAdjacentHTML("beforeend", accesses.map(a=>`<option>${esc(a)}</option>`).join(""));
+
+  function setType(t){
+    state.type = t;
+    document.querySelectorAll("#typeChips .chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.type === t)));
+    render();
+  }
+  $("#typeChips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) setType(b.dataset.type); });
+  $("#access").addEventListener("change", e => { state.access = e.target.value; render(); });
+  $("#q").addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+
+  function goSearch(q){ $("#q").value = q; state.q = q.toLowerCase(); setType(""); document.getElementById("directory").scrollIntoView({behavior:"smooth"}); }
+  document.querySelectorAll("[data-q]").forEach(b => b.addEventListener("click", () => goSearch(b.dataset.q)));
+  document.querySelectorAll(".path [data-type]").forEach(b => b.addEventListener("click", () => {
+    $("#q").value = ""; state.q = ""; setType(b.dataset.type); document.getElementById("directory").scrollIntoView({behavior:"smooth"});
+  }));
+
+  function render(){
+    const words = state.q.split(/\s+/).filter(Boolean);
+    const list = data.filter(r =>
+      (!state.type || r.type === state.type) &&
+      (!state.access || r.access === state.access) &&
+      words.every(w => r.hay.includes(w)));
+    $("#count").textContent = list.length === data.length ? `Showing all ${list.length} resources` : `${list.length} of ${data.length} resources`;
+    $("#grid").innerHTML = list.length ? list.map(r => {
+      const loc = [r.building, r.room].filter(Boolean).join(", ") || "Location not yet confirmed";
+      const eq = (r.equipment||[]).filter(Boolean);
+      return `<button class="card" data-id="${r.id}" aria-haspopup="dialog">
+        <div class="row"><span class="pill type">${esc(r.type)}</span></div>
+        <h3>${esc(r.name)}</h3>
+        <div class="meta">${pin}<span>${esc(loc)}</span></div>
+        <p>${esc(r.summary)}</p>
+        ${eq.length ? `<div class="row">${eq.slice(0,4).map(e=>`<span class="tag">${esc(e)}</span>`).join("")}${eq.length>4?`<span class="tag">+${eq.length-4} more</span>`:""}</div>` : ""}
+        <div class="foot"><span class="pill ${accessClass(r.access)}">${esc(r.access)}</span><span>Details →</span></div>
+      </button>`;
+    }).join("") : `<div class="empty"><p><b>No matches.</b> Try a different word or clear the filters.</p><p>Know a place that should be here? <a href="${esc(formUrl)}" target="_blank" rel="noopener">Suggest it</a>.</p></div>`;
+  }
+  $("#grid").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) open(c.dataset.id, true); });
+
+  // detail dialog
+  const dlg = $("#dlg");
+  const linkify = s => esc(s).replace(/([\w.+-]+@[\w-]+\.[\w.]+)/g,'<a href="mailto:$1">$1</a>').replace(/(\d{3}-\d{3}-\d{4})/g, m => `<a href="tel:+1${m.replace(/-/g,"")}">${m}</a>`);
+  const val = (v, fn) => (v && (!Array.isArray(v) || v.filter(Boolean).length)) ? (fn ? fn(v) : linkify(v)) : '<span class="unk">Not yet confirmed</span>';
+  function open(id, push){
+    const r = data.find(x => x.id === id); if (!r) return;
+    $("#dlgPills").innerHTML = `<span class="pill type">${esc(r.type)}</span><span class="pill ${accessClass(r.access)}">${esc(r.access)}</span>`;
+    $("#dlgTitle").textContent = r.name;
+    $("#dlgMeta").innerHTML = pin + "<span>" + esc([r.building, r.room].filter(Boolean).join(", ") || "Location not yet confirmed") + (r.campus ? " · " + esc(r.campus) : "") + "</span>";
+    const rows = [
+      ["About", val(r.summary)],
+      ["Equipment", val(r.equipment, v => "<ul>" + v.filter(Boolean).map(e=>`<li>${esc(e)}</li>`).join("") + "</ul>")],
+      ["Who can use it", val(r.whoCanUse)],
+      ["How to get access", val(r.howToAccess)],
+      ["Cost", val(r.cost)],
+      ["Hours", val(r.hours)],
+      ["Contact", val(r.contact)],
+    ];
+    $("#dlgList").innerHTML = rows.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+    $("#dlgActions").innerHTML =
+      (r.website ? `<a class="btn btn-primary" href="${esc(r.website)}" target="_blank" rel="noopener">Official page ↗</a>` : "") +
+      `<button class="btn btn-ghost" id="copyLink">Copy link</button>` +
+      `<a class="btn btn-ghost" href="${esc(formUrl)}" target="_blank" rel="noopener">Report a correction</a>`;
+    $("#copyLink").onclick = e => { navigator.clipboard?.writeText(location.href.split("#")[0] + "#" + r.id); e.target.textContent = "Copied!"; };
+    if (push) history.replaceState(null, "", "#" + r.id);
+    document.title = r.name + " — Makershub";
+    if (!dlg.open) dlg.showModal();
+  }
+  function closeDlg(){ dlg.close(); }
+  dlg.addEventListener("close", () => { if (data.some(r => "#" + r.id === location.hash)) history.replaceState(null, "", location.pathname + location.search); document.title = "Makershub — McGill makerspaces, machine shops & 3D printing directory"; });
+  $("#dlgClose").onclick = closeDlg;
+  dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
+
+  // theme toggle (remembered per browser)
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("mh-theme"); if (t) root.dataset.theme = t; } catch(e){}
+  $("#theme").onclick = () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("mh-theme", root.dataset.theme); } catch(e){}
+  };
+
+  render();
+  const h = location.hash.slice(1); if (h && data.some(r=>r.id===h)) open(h, false);
+})();
+</script>
+</body>
+</html>
